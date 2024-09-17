@@ -4,4 +4,4 @@ from django.shortcuts import render
 # Create your views here.
 
 def home_page(req: HttpRequest) -> HttpResponse:
-    return HttpResponse("Home page")
+    return HttpResponse("Универ - Старая общага - СМОТРЕТЬ БЕСПЛАТНО")
