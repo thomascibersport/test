@@ -9,6 +9,6 @@ from . import models
 # Create your views here.
 
 def video_page(req: HttpRequest) -> HttpResponse:
-    video = models.Video.objects.get(pk=1)
+    video = models.Video.objects.get(pk=3)
     context = {'video': video}
-    return render(req, "video/video.html", context)
+    return render(req, "videos/video.html", context)
