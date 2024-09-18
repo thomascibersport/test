@@ -8,8 +8,13 @@
     <title>VideoOpka - {{ video.title }}</title>
 </head>
 <body>
+{% for i in Video %}
+{% endfor %}
+<div>
     <div>{{ video.title }}</div>
+    <img src="{{video.thumbnail.url }}" alt="">
     <video controls src="{{ video.source.url  }}"></video>
+</div>
 
 </body>
 </html>

@@ -8,7 +8,8 @@ from . import models
 
 # Create your views here.
 
-def video_page(req: HttpRequest) -> HttpResponse:
-    video = models.Video.objects.get(pk=3)
+def video_page(req: HttpRequest, video_id: int) -> HttpResponse:
+    video = models.Video.objects.get(pk=video_id)
+
     context = {'video': video}
     return render(req, "videos/video.html", context)

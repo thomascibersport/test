@@ -3,5 +3,5 @@ from django.urls import path
 
 
 urlpatterns = [
-    path('', views.video_page),
+    path('<int:video_id>', views.video_page),
 ]
