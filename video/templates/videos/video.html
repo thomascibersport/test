@@ -14,11 +14,17 @@
 {% endfor %}
 <div class="okno">
     <div>{{ video.title }}</div>
-    <img src="{{video.thumbnail.url }}" alt="" onclick="btn_video()">
-    <video id="video" controls src="{{ video.source.url  }}"></video>
+    <img src="{{video.thumbnail.url }}" alt="" id="btn_video">
+</div>
+
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+        <video id="video" controls src="{{ video.source.url  }}"></video>
+    </div>
+</div>
+
 
     <script src="{% static 'main/script.js' %}"></script>
-</div>
 
 </body>
 </html>
