@@ -1,16 +1,23 @@
 console.log('Hello, world')
 
-var modal = document.getElementById('loginModal');
-var btn = document.getElementById('btn_video');
-var video = document.getElementById('video');
+document.querySelectorAll('.btn_video').forEach(function(image, index) {
+    image.addEventListener('click', function() {
+        let videoSource = this.getAttribute('data-video-src');
 
-btn.addEventListener('click', function() {
-    modal.style.display = 'block';
+        let modal = document.getElementById('modal_' + (index + 1));
+
+        modal.querySelector('video').src = videoSource;
+
+        modal.style.display = 'block';
+
+
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                modal.querySelector('video').pause();
+            }
+        };
+    });
 });
-window.addEventListener('click', function(event) {
-    if(event.target == modal) {
-        modal.style.display = 'none';
-        video.pause();
-        video.currentTime = 0;
-    }
-});
+
+

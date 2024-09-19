@@ -1,7 +1,6 @@
 from . import views
 from django.urls import path
 
-
 urlpatterns = [
-    path('<int:video_id>', views.video_page),
+    path('', views.video_page, name='video_page'),
 ]

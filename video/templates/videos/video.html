@@ -10,18 +10,24 @@
     <link rel="stylesheet" href="{% static 'main/index.css' %}">
 </head>
 <body>
-{% for i in Video %}
-{% endfor %}
-<div class="okno">
-    <div>{{ video.title }}</div>
-    <img src="{{video.thumbnail.url }}" alt="" id="btn_video">
+<div class="video-gallery">  <!-- Контейнер для всех видео -->
+    {% for video in videos %}
+        <div class="okno">
+            <div>{{ video.title }}</div>
+            <!-- Измените атрибут id на class для использования общего класса -->
+            <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}" class="btn_video" data-video-src="{{ video.source.url }}">
+        </div>
+
+        <!-- Каждое видео имеет свое модальное окно с уникальным id -->
+        <div class="modal" id="modal_{{ forloop.counter }}">
+            <div class="modal-content">
+                <video id="video" controls src="{{ video.source.url  }}"></video>
+            </div>
+        </div>
+    {% endfor %}
 </div>
 
-<div class="modal" id="loginModal">
-    <div class="modal-content">
-        <video id="video" controls src="{{ video.source.url  }}"></video>
-    </div>
-</div>
+
 
 
     <script src="{% static 'main/script.js' %}"></script>
