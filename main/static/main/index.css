@@ -25,3 +25,21 @@ body {
     padding:20px;
     border-radius: 5px;
 }
+
+.video-gallery {
+    display: flex;
+    padding: 40px;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.video-gallery img {
+    width: 500px;
+    height: 400px;
+    object-fit: cover
+}
+
+video {
+    width: 1200px;
+    height: 600px;
+}

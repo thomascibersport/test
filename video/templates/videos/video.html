@@ -10,15 +10,18 @@
     <link rel="stylesheet" href="{% static 'main/index.css' %}">
 </head>
 <body>
-<div class="video-gallery">  <!-- Контейнер для всех видео -->
+{% include 'main/header.html' %}
+<h1>МЕГА КРУТЫЕ ВИДОСЫ - В ХОРОШЕМ КАЧЕСТВЕ</h1>
+<div class="video-gallery">
     {% for video in videos %}
+    <div class="gallery">
         <div class="okno">
-            <div>{{ video.title }}</div>
-            <!-- Измените атрибут id на class для использования общего класса -->
             <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}" class="btn_video" data-video-src="{{ video.source.url }}">
+            <div>{{ video.title }}</div>
         </div>
+    </div>
 
-        <!-- Каждое видео имеет свое модальное окно с уникальным id -->
+
         <div class="modal" id="modal_{{ forloop.counter }}">
             <div class="modal-content">
                 <video id="video" controls src="{{ video.source.url  }}"></video>
