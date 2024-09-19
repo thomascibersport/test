@@ -9,3 +9,14 @@ body {
     color: white;
     font-size: 20px;
 }
+
+video {
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 20%;
+}
+
+.okno {
+    position: relative;
+}
