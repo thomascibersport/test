@@ -9,6 +9,9 @@
 </head>
 <body>
     <header>
+        {% if not request.user.is_anonymous  %}
+            <a href="/logout/">Выйти</a>
+        {% endif %}
         <nav>
             <ul>
                 <li>ТИПО КРУТОЕ ЛОГО</li>
