@@ -5,6 +5,8 @@
     <title>Авторизация</title>
 </head>
 <body>
+    {% include 'main/header.html' %}
+
 <form action="/login" method="post">
     <h1>Авторизация</h1>
     {% csrf_token %}
