@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, forms
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 
@@ -20,7 +20,11 @@ def login_view(request:HttpRequest) -> HttpResponse:
 
 
 def register(request:HttpRequest) -> HttpResponse:
-    return render(request,'login/register.html')
+    if request.method == "GET":
+        form = forms.RegisterForm()
+        context = {'form': form}
+
+        return render(request,'login/register.html', context)
 
 def logout_view(request:HttpRequest) -> HttpResponse:
     logout(request)

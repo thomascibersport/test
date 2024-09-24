@@ -7,6 +7,13 @@
 <body>
     {% include 'main/header.html' %}
 
-
+     <h1>Регистрация</h1>
+    <div>
+        <form action="/register/" novalidate>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
 </body>
 </html>
