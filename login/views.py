@@ -1,6 +1,8 @@
-from django.contrib.auth import authenticate, login, logout, forms
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
+
+from . import forms
 
 
 def login_view(request:HttpRequest) -> HttpResponse:
@@ -25,6 +27,18 @@ def register(request:HttpRequest) -> HttpResponse:
         context = {'form': form}
 
         return render(request,'login/register.html', context)
+
+    if request.method == "POST":
+        form = forms.RegisterForm(request.POST)
+        context = {'form': form}
+        if form.is_valid():
+
+            user = form.save()
+            login(request, user)
+            return redirect('/')
+
+        return render(request, 'login/register.html', context)
+
 
 def logout_view(request:HttpRequest) -> HttpResponse:
     logout(request)
