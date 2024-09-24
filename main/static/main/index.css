@@ -10,6 +10,38 @@ body {
     font-size: 20px;
 }
 
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px;
+    background: gray;
+}
+header nav ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    list-style: none;
+}
+header .user {
+    display: flex;
+    gap: 40px;
+}
+header .log_btn {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    list-style: none;
+}
+a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.5s;
+}
+a:hover {
+    color: blue;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -43,3 +75,4 @@ video {
     width: 1200px;
     height: 600px;
 }
+
