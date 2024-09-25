@@ -18,7 +18,12 @@ def login_view(request:HttpRequest) -> HttpResponse:
         else:
             return redirect('/login')
 
+    if request.user.is_authenticated:
+        return redirect('/')
+
     return  render(request, 'login/login.html')
+
+
 
 
 def register(request:HttpRequest) -> HttpResponse:
@@ -39,6 +44,8 @@ def register(request:HttpRequest) -> HttpResponse:
 
         return render(request, 'login/register.html', context)
 
+    if request.user.is_authenticated:
+        return redirect('/')
 
 def logout_view(request:HttpRequest) -> HttpResponse:
     logout(request)
