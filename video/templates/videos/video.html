@@ -1,39 +1,24 @@
-<!doctype html>
-{% load static %}
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>VideoOpka - {{ video.title }}</title>
-    <link rel="stylesheet" href="{% static 'main/index.css' %}">
-</head>
-<body>
-{% include 'main/header.html' %}
-<h1>МЕГА КРУТЫЕ ВИДОСЫ - В ХОРОШЕМ КАЧЕСТВЕ</h1>
-<div class="video-gallery">
-    {% for video in videos %}
-    <div class="gallery">
-        <div class="okno">
-            <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}" class="btn_video" data-video-src="{{ video.source.url }}">
-            <div>{{ video.title }}</div>
-        </div>
-    </div>
+{% extends 'main/base.html' %}
 
+{% block title %} VideoOpka - Видео {% endblock title %}
 
-        <div class="modal" id="modal_{{ forloop.counter }}">
-            <div class="modal-content">
-                <video id="video" controls src="{{ video.source.url  }}"></video>
+{% block content %}
+    <h1>МЕГА КРУТЫЕ ВИДОСЫ - В ХОРОШЕМ КАЧЕСТВЕ</h1>
+    <div class="video-gallery">
+        {% for video in videos %}
+        <div class="gallery">
+            <div class="okno">
+                <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}" class="btn_video" data-video-src="{{ video.source.url }}">
+                <div>{{ video.title }}</div>
             </div>
         </div>
-    {% endfor %}
-</div>
 
 
-
-
-    <script src="{% static 'main/script.js' %}"></script>
-
-</body>
-</html>
+            <div class="modal" id="modal_{{ forloop.counter }}">
+                <div class="modal-content">
+                    <video id="video" controls src="{{ video.source.url  }}"></video>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

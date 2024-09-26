@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    {% include 'main/header.html' %}
+{% extends 'main/base.html' %}
 
-     <h1>Регистрация</h1>
+{% block title %} VideoOpka - Регистрация {% endblock title %}
+
+{% block content %}
+    <h1>Регистрация</h1>
     <div>
         <form method="POST" action="/register/" novalidate>
             {% csrf_token %}
@@ -15,5 +11,4 @@
             <button type="submit">Зарегистрироваться</button>
         </form>
     </div>
-</body>
-</html>
+{% endblock %}

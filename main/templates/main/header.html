@@ -11,28 +11,6 @@
 
 </head>
 <body>
-    <header>
 
-
-        <nav>
-            <ul>
-                <li class="logo"><a href="/">ТИПО КРУТОЕ ЛОГО</a></li>
-                <li><a href="/video">Видео</a></li>
-            </ul>
-        </nav>
-
-        {% if not request.user.is_anonymous  %}
-        <div class="user">
-            <p>{{ user.username }}</p>
-            <a href="/logout/">Выйти</a>
-        </div>
-        {% else %}
-        <div class="log_btn">
-            <li><a href="/login">Вход</a></li>
-            <li><a href="/register">Регистрация</a></li>
-        </div>
-
-        {% endif %}
-    </header>
 </body>
 </html>

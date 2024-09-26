@@ -1,0 +1,45 @@
+<!doctype html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} VideoOpka {% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'main/index.css' %}">
+</head>
+<body>
+    <header>
+
+
+        <nav>
+            <ul>
+                <li class="logo"><a href="/">ТИПО КРУТОЕ ЛОГО</a></li>
+                <li><a href="/video">Видео</a></li>
+            </ul>
+        </nav>
+
+        {% if not request.user.is_anonymous  %}
+        <div class="user">
+            <p>{{ user.username }}</p>
+            <a href="/logout/">Выйти</a>
+        </div>
+        {% else %}
+        <div class="log_btn">
+            <li><a href="/login">Вход</a></li>
+            <li><a href="/register">Регистрация</a></li>
+        </div>
+
+        {% endif %}
+    </header>
+
+
+    {% block content %}
+    {% endblock %}
+
+
+    <script src="{% static 'main/script.js' %}"></script>
+
+</body>
+</html>

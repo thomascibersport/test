@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Авторизация</title>
-</head>
-<body>
-    {% include 'main/header.html' %}
+{% extends 'main/base.html' %}
 
-<form action="/login/" method="post">
-    <h1>Авторизация</h1>
-    {% csrf_token %}
-    <input name="username" type="text" placeholder="Введите имя пользователя">
-    <input name="password" type="text" placeholder="Введите пароль ">
-    <button type="submit">Авторизоваться</button>
-</form>
-</body>
-</html>
+{% block title %} VideoOpka - Авторизация {% endblock title %}
+
+{% block content %}
+    <form action="/login/" method="post">
+        <h1>Авторизация</h1>
+        {% csrf_token %}
+        <input name="username" type="text" placeholder="Введите имя пользователя">
+        <input name="password" type="text" placeholder="Введите пароль ">
+        <button type="submit">Авторизоваться</button>
+    </form>
+{% endblock %}
