@@ -3,9 +3,10 @@
 {% block title %} VideoOpka - Регистрация {% endblock title %}
 
 {% block content %}
-    <h1>Регистрация</h1>
+
     <div>
-        <form method="POST" action="/register/" novalidate>
+        <h1>Регистрация</h1>
+        <form class="reg_form" method="POST" action="/register/" novalidate>
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Зарегистрироваться</button>

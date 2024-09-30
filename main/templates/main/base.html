@@ -33,10 +33,13 @@
 
         {% endif %}
     </header>
+    <br>
 
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
 
-    {% block content %}
-    {% endblock %}
 
 
     <script src="{% static 'main/script.js' %}"></script>

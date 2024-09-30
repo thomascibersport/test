@@ -3,7 +3,7 @@
 {% block title %} VideoOpka - Авторизация {% endblock title %}
 
 {% block content %}
-    <form action="/login/" method="post">
+    <form class="reg_form" action="/login/" method="post">
         <h1>Авторизация</h1>
         {% csrf_token %}
         <input name="username" type="text" placeholder="Введите имя пользователя">

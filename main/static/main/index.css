@@ -5,43 +5,166 @@
 }
 
 body {
-    background: red;
-    color: white;
-    font-size: 20px;
+    background-color: #181818;
+    color: #FFF;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
 }
 
-
+/* Header Styling */
 header {
     display: flex;
     justify-content: space-between;
-    margin: 40px;
-    background: gray;
-}
-header nav ul {
-    display: flex;
-    justify-content: space-between;
-    gap: 50px;
-    list-style: none;
-}
-header .user {
-    display: flex;
-    gap: 40px;
-}
-header .log_btn {
-    display: flex;
-    justify-content: space-between;
-    gap: 50px;
-    list-style: none;
-}
-a {
-    color: #fff;
-    text-decoration: none;
-    transition: 0.5s;
-}
-a:hover {
-    color: blue;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #202020;
+    border-bottom: 1px solid #333;
+    width: 100%;
+    z-index: 1000;
 }
 
+header nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+header .user {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+header .log_btn {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+header a {
+    color: #FFF;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header a:hover {
+    color: #FF0000;
+}
+
+/* Main Content Area */
+main {
+    padding: 80px 20px 0 20px;
+}
+
+.container {
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    margin: 0 auto;    /* Центрирование контейнера */
+    padding: 0 20px;   /* Внутренние отступы по бокам */
+}
+
+/* Добавим медиазапрос для более адаптивной верстки */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+}
+
+/* Общий стиль для всей формы */
+.reg_form {
+    background-color: #202020;  /* Темный фон для формы, как на YouTube */
+    padding: 40px;              /* Внутренний отступ для создания пространства внутри формы */
+    border-radius: 10px;        /* Закругленные углы формы */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);  /* Тень для объёмного эффекта */
+    max-width: 400px;           /* Максимальная ширина формы */
+    margin: 50px auto;          /* Центрирование формы на странице */
+    color: #FFF;                /* Белый текст */
+}
+
+/* Стили для полей ввода */
+.reg_form input[type="text"],
+.reg_form input[type="email"],
+.reg_form input[type="password"] {
+    width: 100%;                /* Ширина поля на всю форму */
+    padding: 12px;              /* Внутренний отступ */
+    margin-bottom: 15px;        /* Отступ между полями */
+    border-radius: 5px;         /* Закругленные углы */
+    border: 1px solid #444;     /* Серый бордюр */
+    background-color: #333;     /* Темный фон для полей */
+    color: #FFF;                /* Белый цвет текста */
+    font-size: 16px;            /* Размер шрифта */
+}
+
+.reg_form input[type="text"]::placeholder,
+.reg_form input[type="email"]::placeholder,
+.reg_form input[type="password"]::placeholder {
+    color: #AAA;                /* Светлый цвет для placeholder */
+}
+
+/* Стили для кнопки отправки формы */
+.reg_form button[type="submit"] {
+    background-color: #FF0000;  /* Красный цвет кнопки */
+    color: white;               /* Белый текст на кнопке */
+    padding: 12px 20px;         /* Внутренние отступы */
+    border: none;               /* Убираем рамку */
+    border-radius: 5px;         /* Закругленные углы кнопки */
+    font-size: 16px;            /* Размер шрифта */
+    cursor: pointer;            /* Указатель при наведении */
+    transition: background-color 0.3s ease; /* Плавная смена цвета */
+    width: 100%;                /* Кнопка занимает всю ширину формы */
+}
+
+.reg_form button[type="submit"]:hover {
+    background-color: #CC0000;  /* Изменение цвета кнопки при наведении */
+}
+
+/* Стили для ошибки валидации */
+.errorlist {
+    list-style-type: none;      /* Убираем стандартные маркеры для списка */
+    padding: 0;
+    color: #FF0000;             /* Красный текст ошибки */
+    margin-bottom: 15px;        /* Отступ снизу */
+}
+
+/* Стили для меток полей */
+.reg_form label {
+    color: #FFF;                /* Белый цвет для меток */
+    font-weight: bold;          /* Жирный текст для меток */
+    margin-bottom: 8px;
+    display: block;             /* Метки над полями */
+}
+
+/* Video Gallery */
+.video-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 80px;
+}
+
+.video-gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.video-gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Single Video Page */
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Modal Styling */
 .modal {
     display: none;
     position: fixed;
@@ -49,50 +172,37 @@ a:hover {
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0, 0, 0, 0.8);
 }
+
 .modal-content {
-    width:400px;
-    margin:100px 200px;
-    padding:20px;
-    border-radius: 5px;
-}
-
-.video-gallery {
-    display: flex;
-    padding: 40px;
-    gap: 20px;
-    justify-content: space-around;
-}
-
-.video-gallery img {
     width: 500px;
-    height: 400px;
-    object-fit: cover
-}
-
-video {
-    width: 1200px;
-    height: 600px;
-    margin: 0 auto;
-}
-
-.comments-section {
-    background-color: #f9f9f9;
+    margin: 100px auto;
     padding: 20px;
-    border-radius: 8px;
+    background: #202020;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    color: #FFF;
+}
+
+/* Comments Section */
+.comments-section {
+    background-color: #202020;
+    padding: 20px;
+    border-radius: 10px;
     margin-top: 20px;
-    width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .comments-section p {
-    font-size: 20px;
-    margin: 5px 0;
-    color: #333;
+    font-size: 16px;
+    margin: 10px 0;
+    color: #CCC;
 }
 
 .comments-section p strong {
-    color: #000;
+    color: #FFF;
 }
 
 .comments-section p small {
@@ -100,6 +210,7 @@ video {
     color: #888;
 }
 
+/* Form Styling */
 form {
     margin-top: 20px;
 }
@@ -108,21 +219,53 @@ form input[type="text"], form textarea {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ddd;
+    border: 1px solid #333;
     border-radius: 4px;
+    background-color: #333;
+    color: #FFF;
     font-size: 16px;
 }
 
+form input[type="text"]::placeholder, form textarea::placeholder {
+    color: #999;
+}
+
 button[type="submit"] {
-    background-color: #007bff;
+    background-color: #FF0000;
     color: white;
-    padding: 10px 15px;
+    padding: 10px 20px;
     border: none;
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #CC0000;
+}
+
+/* Footer (optional) */
+footer {
+    background-color: #202020;
+    color: #FFF;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid #333;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    header nav ul {
+        gap: 10px;
+    }
+
+    .video-gallery img {
+        height: 150px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
 }

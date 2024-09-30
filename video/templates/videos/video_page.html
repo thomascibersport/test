@@ -17,9 +17,8 @@
             <p><strong>{{ comment.user.username }}</strong>: <br> {{ comment.content }}</p>
             <p>{{ comment.created_at }}</p>
         {% endfor %}
-    </div>
 
-    {% if user.is_authenticated %}
+        {% if user.is_authenticated %}
         <h3>Оставить комментарий</h3>
         <form method="POST">
             {% csrf_token %}
@@ -29,4 +28,7 @@
     {% else %}
         <p><a style="color: blue;" href="/login">Войдите в аккаунт</a> чтобы оставить комментарий.</p>
     {% endif %}
+    </div>
+
+
 {% endblock %}
