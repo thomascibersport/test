@@ -14,8 +14,8 @@
     <h2>Комментарии</h2>
     <div class="comments-section">
         {% for comment in comments %}
-            <p><strong>{{ comment.user.username }}</strong>: {{ comment.content }}</p>
-            <p><small>{{ comment.created_at }}</small></p>
+            <p><strong>{{ comment.user.username }}</strong>: <br> {{ comment.content }}</p>
+            <p>{{ comment.created_at }}</p>
         {% endfor %}
     </div>
 

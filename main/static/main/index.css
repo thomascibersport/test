@@ -74,5 +74,55 @@ a:hover {
 video {
     width: 1200px;
     height: 600px;
+    margin: 0 auto;
 }
 
+.comments-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 500px;
+}
+
+.comments-section p {
+    font-size: 20px;
+    margin: 5px 0;
+    color: #333;
+}
+
+.comments-section p strong {
+    color: #000;
+}
+
+.comments-section p small {
+    font-size: 12px;
+    color: #888;
+}
+
+form {
+    margin-top: 20px;
+}
+
+form input[type="text"], form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
