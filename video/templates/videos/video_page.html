@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+{% block title %} VideoOpka -  {{ video.title }}  {% endblock title %}
+
+{% block content %}
+    <h1>{{ video.title }}</h1>
+    <div class="video-container">
+        <video controls>
+            <source src="{{ video.source.url }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <h2>Комментарии</h2>
+    <div class="comments-section">
+        {% for comment in comments %}
+            <p><strong>{{ comment.user.username }}</strong>: {{ comment.content }}</p>
+            <p><small>{{ comment.created_at }}</small></p>
+        {% endfor %}
+    </div>
+
+    {% if user.is_authenticated %}
+        <h3>Оставить комментарий</h3>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Оставить комментарий</button>
+        </form>
+    {% else %}
+        <p><a style="color: blue;" href="/login">Войдите в аккаунт</a> чтобы оставить комментарий.</p>
+    {% endif %}
+{% endblock %}

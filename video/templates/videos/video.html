@@ -8,17 +8,14 @@
         {% for video in videos %}
         <div class="gallery">
             <div class="okno">
-                <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}" class="btn_video" data-video-src="{{ video.source.url }}">
-                <div>{{ video.title }}</div>
+                <!-- Добавляем ссылку для перехода на другую страницу -->
+                <a href="{% url 'video_page' video.id %}">
+                    <img src="{{ video.thumbnail.url }}" alt="{{ video.title }}" class="btn_video">
+                    <div>{{ video.title }}</div>
+                </a>
             </div>
         </div>
-
-
-            <div class="modal" id="modal_{{ forloop.counter }}">
-                <div class="modal-content">
-                    <video id="video" controls src="{{ video.source.url  }}"></video>
-                </div>
-            </div>
         {% endfor %}
     </div>
+
 {% endblock %}
