@@ -1,7 +1,10 @@
-from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render
+from django.http import HttpResponse, HttpRequest
+import logging
 
-# Create your views here.
+def home_page(request: HttpRequest) -> HttpResponse:
+    return render(request, 'main/index.html')
 
-def home_page(req: HttpRequest) -> HttpResponse:
-    return render(req, 'main/index.html')
+def custom_404(request, exception):
+    logging.error(f'404 Error: {request.path}')
+    return render(request, 'main/404.html', status=404)

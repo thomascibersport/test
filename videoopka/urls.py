@@ -11,4 +11,7 @@ urlpatterns = [
     path('admin/', admin.site.urls)
 ]
 
+# Обработчик ошибки 404
+handler404 = 'main.views.custom_404'
+
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
